@@ -1,0 +1,140 @@
+// Data.cpp : This file contains the 'main' function. Program execution begins and ends there.
+//
+
+#include "pch.h"
+#include <iostream>
+#include <string>
+
+class PersonData
+{
+private: 
+	std::string lastName;
+	std::string firstName;
+	std::string address;
+	std::string city;
+	std::string state;
+	std::string zip;
+	std::string phone;
+public:
+	PersonData() {};
+
+	PersonData(std::string l, std::string f, std::string a, std::string c, std::string s, std::string z, std::string p)
+	{
+		lastName = l;
+		firstName = f;
+		address = a;
+		city = c;
+		state = s;
+		zip = z;
+		phone = p;
+	}
+	void setLastName(std::string la)
+	{
+		lastName = la;
+	}
+	void setFirstName(std::string fi)
+	{
+		firstName = fi;
+	}
+	void setAddress(std::string ad)
+	{
+		address = ad;
+	}
+	void setCity(std::string ci)
+	{
+		city = ci;
+	}
+	void setState(std::string st)
+	{
+		state = st;
+	}
+	void setZip(std::string zi)
+	{
+		zip = zi;
+	}
+	void setPhone(std::string ph)
+	{
+		phone = ph;
+	}
+	std::string getLastName()
+	{
+		return lastName;
+	}
+	std::string getFirstName()
+	{
+		return firstName;
+	}
+	std::string getAddress()
+	{
+		return address;
+	}
+	std::string getCity()
+	{
+		return city;
+	}
+	std::string getState()
+	{
+		return state;
+	}
+	std::string getZip()
+	{
+		return zip;
+	}
+	std::string getPhone()
+	{
+		return phone;
+	}
+
+};
+
+class CustomerData : public PersonData {
+private:
+	int customerData;
+	bool mailingList;
+public:
+	CustomerData(int c, bool m)
+	{
+		customerData = c;
+		mailingList = m;
+	}
+	void setCustomerData(int co)
+	{
+		customerData = co;
+	}
+	void setMailingList(bool ma)
+	{
+		mailingList = ma;
+	}
+	int getCustomerData()
+	{
+		return customerData;
+	}
+	bool getMailingList()
+	{
+		return mailingList;
+	}
+};
+
+
+int main()
+{
+	CustomerData rick(754, true);
+	
+	rick.setFirstName("Rick");
+	rick.setLastName("Flounder");
+	rick.setAddress("234 West Cosa dr.");
+	rick.setCity("Flake");
+	rick.setState("CA");
+	rick.setPhone("626-345-867");
+
+
+	std::cout << "Customer number: " << rick.getCustomerData();
+	std::cout << "\n Customer first name: " << rick.getFirstName();
+	std::cout << "\n Customer last name: " << rick.getLastName();
+	std::cout << "\n Customer address: " << rick.getAddress();
+	std::cout << "\n Customer city: " << rick.getCity();
+	std::cout << "\n Customer state: " << rick.getState();
+	std::cout << "\n Customer phone number: " << rick.getPhone();
+}
+
+
